@@ -14,9 +14,9 @@ import requests
 from env import github_token, github_username
 
 REPOS = [
-    "gocodeup/codeup-setup-script",
-    "gocodeup/movies-application",
-    "torvalds/linux",
+    "octocat/Spoon-Knife",
+    "SmartThingsCommunity/SmartThingsPublic",
+    "twbs/bootstrap"
 ]
 
 headers = {"Authorization": f"token {github_token}", "User-Agent": github_username}
