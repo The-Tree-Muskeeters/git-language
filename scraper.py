@@ -17,11 +17,11 @@ g_url = ['https://github.com/search?o=desc&p=1&q=stars%3A%3E1&s=forks&type=Repos
          'https://github.com/search?o=desc&p=3&q=stars%3A%3E1&s=forks&type=Repositories', 'https://github.com/search?o=desc&p=4&q=stars%3A%3E1&s=forks&type=Repositories',\
          'https://github.com/search?o=desc&p=5&q=stars%3A%3E1&s=forks&type=Repositories','https://github.com/search?o=desc&p=6&q=stars%3A%3E1&s=forks&type=Repositories',\
         'https://github.com/search?o=desc&p=7&q=stars%3A%3E1&s=forks&type=Repositories','https://github.com/search?o=desc&p=8&q=stars%3A%3E1&s=forks&type=Repositories',\
-        'https://github.com/search?o=desc&p=9&q=stars%3A%3E1&s=forks&type=Repositories','https://github.com/search?o=desc&p=10&q=stars%3A%3E1&s=forks&type=Repositories',\]
+        'https://github.com/search?o=desc&p=9&q=stars%3A%3E1&s=forks&type=Repositories','https://github.com/search?o=desc&p=10&q=stars%3A%3E1&s=forks&type=Repositories']
 
 
 def get_repos(urls):
-    """ Function that gives address of github repos in a list for given list if urls""""
+    """ Function that gives address of github repos in a list for given list if urls """
     repo = []
     for url in urls:    
         response = get(url, headers=headers)
@@ -31,15 +31,6 @@ def get_repos(urls):
             repo.append(i.find('a')['href'])
     return repo
 
-def get_most_forked_repos():
-    """ Run this function to get 110 most forked repos on github"""
-    #this gives on 90 repos:
-    repos = get_repos(g_url)
-
-    #this will give 20 more repos
-    more_repos = repos = get_repos(['https://github.com/search?o=desc&p=11&q=stars%3A%3E1&s=forks&type=Repositories', 'https://github.com/search?o=desc&p=12&q=stars%3A%3E1&s=forks&type=Repositories'])
-
-    return repos + more_repos
 
 
 
