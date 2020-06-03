@@ -22,30 +22,31 @@ def make_the_model():
     df = df.drop(columns = ['repo'])
 
     # Apply some cleaning to the data
-    df = (prepare_r.prep_contents(df)
-              .drop(columns = ['original', 'stemmed', 'normalized', 'lemmatized'])
-         )
+    df = prepare_r.prep_contents(df)/
+        .drop(columns = ['original', 'stemmed', 'normalized', 'lemmatized'])
 
-    df = features.add_features(df)
-
+    # Create, fit and transform our TF-IDF Vectorizor on our model dataset
     from sklearn.feature_extraction.text import TfidfVectorizer
     tfidf = TfidfVectorizer()
     X = tfidf.fit_transform(df.cleaned).todense()
     y = df.language
 
+    # Split the data into train and test, along the x and y variables
     from sklearn.model_selection import train_test_split
     X_train, X_test, y_train, y_test = train_test_split(X, y, stratify=y, test_size=.2, random_state = 123)
 
-    from sklearn.neural_network import MLPClassifier
-    clf = MLPClassifier(solver='lbfgs', alpha=1,
-                         hidden_layer_sizes=(70,), random_state=123)
-
+    # Create a Classifier for the Naive Bayes 
+    clf = BernoulliNB(alpha=1)
     clf.fit(X_train, y_train)
     
+    # Return the NLP classifier, as well as the Naive Bayes classifier
+    # These classifiers have been fit to the sample dataset we provided
+    # They can be used to transform new datasets and provide predictions on them
     return tfidf, clf
 
 
 def predict_single_readme(readme_text):
+    # Getting our classifiers we modeled
     tfidf, clf = make_the_model()
     X = tfidf.transform([readme_text]).todense()
     
