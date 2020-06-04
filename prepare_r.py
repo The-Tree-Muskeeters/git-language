@@ -3,7 +3,7 @@ import nltk
 from nltk.tokenize.toktok import ToktokTokenizer
 from nltk.corpus import stopwords
 import pandas as pd
-import acquire
+import acquire_r
 import unicodedata
 import json
 
