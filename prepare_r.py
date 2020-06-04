@@ -7,6 +7,13 @@ import acquire_r
 import unicodedata
 import json
 
+def other(language):
+    """ function 'other' keeps only certain languages and categorized the others as 'Others'. """
+    list = ['JavaScript',  'Java' ,'Python' , 'C++' , 'HTML']
+    if language in list:
+        return language
+    else: 
+        return 'Other'
 
 
 def basic_clean(string):
