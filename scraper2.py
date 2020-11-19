@@ -4,6 +4,7 @@ import os
 import re
 from env import github_token, github_username
 import pandas as pd
+import time
 
 
 headers = {"Authorization": f"token {github_token}", "User-Agent": github_username}
@@ -23,7 +24,8 @@ g_url = ['https://github.com/search?q=stars%3A%3E0&s=stars&type=Repositories', '
 def get_repos(urls):
     """ Function that gives address of github repos in a list for given list if urls """
     repo = []
-    for url in urls:    
+    for url in urls:
+        time.sleep(20) # Sleep for 3 seconds    
         response = get(url, headers=headers)
         soup = BeautifulSoup(response.text)
         text = soup.find_all(attrs={"f4 text-normal"})
