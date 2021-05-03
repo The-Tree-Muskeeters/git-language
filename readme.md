@@ -156,4 +156,7 @@ What is Naive-Bayes?  Think of it this way: There are two Math books, Book 1 and
 ## Conclusion
 
 To develop a model from scratch that is 68% accurate in its predictions based solely on one facet of an entire, expansive database is pretty solid.  However, we're not breaking our arms while patting ourselves on the back - this could be improved.  How much so, we don't know, but if we were tasked with (or allowed to) examine the GitHub repos based on something like file extensions or re-create our models so that we could see any images, we believe we could bump or final model's accuracy by a significant percentage.
- 
+
+## Google Slides Link
+
+To view our slide deck and how we visually represented our findings, we welcome you to visit the actual [presentation](https://docs.google.com/presentation/d/1i98IIckO5pwUA-o4od7V_7PEWDJPPgVTUTGCONnoga0/edit#slide=id.p). Thank you for your time, and we look forward to hearing your thoughts!
